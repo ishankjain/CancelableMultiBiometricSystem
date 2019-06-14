@@ -1,3 +1,4 @@
+addpath(genpath(pwd));
 train=load('trainData.mat');
 test=load('testData.mat');
 train=train.trainData;
@@ -54,10 +55,10 @@ for i=1:size(trainData,1)
     disp(i);
     close all;
 end
-% save('MinutiaeTrain.mat','MinutiaeTrain');
-% save('Minutiae_pairTrain.mat','Minutiae_pairTrain');
-% save('MinutiaeTest.mat','MinutiaeTest');
-% save('Minutiae_pairTest.mat','Minutiae_pairTest');
+save('MinutiaeTrain.mat','MinutiaeTrain');
+save('Minutiae_pairTrain.mat','Minutiae_pairTrain');
+save('MinutiaeTest.mat','MinutiaeTest');
+save('Minutiae_pairTest.mat','Minutiae_pairTest');
 save('DecimalTrain.mat','DecimalTrain');
 save('DecimalTest.mat','DecimalTest');
 
