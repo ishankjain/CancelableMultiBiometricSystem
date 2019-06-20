@@ -1,0 +1,20 @@
+[PM1,PUM1,DS1,X]=unlinkabilityFunc();
+[PM2,PUM2,DS2,X]=unlinkabilityFunc();
+[PM3,PUM3,DS3,X]=unlinkabilityFunc();
+[PM4,PUM4,DS4,X]=unlinkabilityFunc();
+[PM5,PUM5,DS5,X]=unlinkabilityFunc();
+[PM6,PUM6,DS6,X]=unlinkabilityFunc();
+
+PM=(PM1+PM2+PM3+PM4+PM5+PM6)/6;
+PUM=(PUM1+PUM2+PUM3+PUM4+PUM5+PUM6)/6;
+DS=(DS1+DS2+DS3+DS4+DS5+DS6)/6;
+figure;
+plot(X,PM,'color','r','LineStyle',':','LineWidth',3);
+hold on;
+plot(X,PUM,'color','b','LineStyle','--','LineWidth',3);
+hold on;
+plot(X,DS,'color','m','LineStyle','-','LineWidth',3);
+hold off;
+legend('mated','unmated','Ds');
+xlabel('score');
+ylabel('probability density');
