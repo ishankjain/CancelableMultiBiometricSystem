@@ -1,3 +1,0 @@
-load('score_iris.mat');
-load('score_finger.mat');
-RA1=
