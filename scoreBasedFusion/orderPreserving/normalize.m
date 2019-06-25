@@ -1,4 +1,4 @@
-function [J,P]=normalize(S,y)
+function [J,P,y,S]=normalize(S,y)
     % load('score_finger.mat')
     % S=score_finger(1,:);
 %     S=1*rand(1,100); 
@@ -6,7 +6,7 @@ function [J,P]=normalize(S,y)
     % y=zeros(1,100);
     % y(1,100)=1;
 %     y = randi([0 1], 1,N);
-    [~, b]=sort(S);
+    [S, b]=sort(S);
     y=y(b);
     for i=0:N
         J(i+1)=i;

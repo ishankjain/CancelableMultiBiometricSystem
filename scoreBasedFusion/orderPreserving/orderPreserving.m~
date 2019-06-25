@@ -1,0 +1,28 @@
+% S1=1*rand(1,100);
+% S2=1*rand(1,100);
+% y = randi([0 1], 1,100);
+[S1,S2,y]=trainScore();
+[J1,P1,y1,S1]=normalize(S1,y);
+[J2,P2,y2,S2]=normalize(S2,y);
+c1=size(J1,2)-1;
+c2=size(J2,2)-1;
+Mplus=zeros(c1,c2);
+Mminus=zeros(c1,c2);
+R=zeros(c1,c2);
+totgen=sum(y);
+totimp=size(y,2)-totgen;
+for i=1:c1
+    p1=sum(y1(J1(i)+1:J1(i+1)));
+    p2=J1(i+1)-J1(i)-p1;
+    for j=1:c2
+        q1=sum(y2(J2(j)+1:J2(j+1)));
+        q2=J2(j+1)-J2(j)-q1;
+        Mplus(i,j)=(p1*q1)/(totgen*totgen);
+        Mminus(i,j)=(p2*q2)/(totimp*totimp);
+    end
+end
+
+t1=sum(sum(Mplus));
+t2=sum(sum(Mminus));
+
+c=1;
