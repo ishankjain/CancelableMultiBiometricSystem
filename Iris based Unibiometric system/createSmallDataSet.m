@@ -1,14 +1,14 @@
 
-function createSmallDataSet()
+% function createSmallDataSet()
     addpath(genpath(pwd));
-    path='IITDDatabase/';
+    path='ubiris/';
     Files=dir(path);
     user=1;
     i=1;
     trainData={};
-    validationData={};
+%     validationData={};
     testData={};
-    while user<=200
+    while user<=100
         path2=strcat(path,Files(i).name);
         iris=dir(path2);
         if(strcmp(path2,strcat(path,'.')) || strcmp(path2,strcat(path,'..')) || strcmp(path2,strcat(path,'.DS_Store')) || strcmp(path2,strcat(path,'._.DS_Store' )))
@@ -23,8 +23,8 @@ function createSmallDataSet()
             end
             trainData(user,1)={iname};
             iname=strcat(path2,iris(j+1).name);
-            validationData(user,1)={iname};
-            iname=strcat(path2,iris(j+2).name);
+%             validationData(user,1)={iname};
+%             iname=strcat(path2,iris(j+2).name);
             testData(user,1)={iname};
             break;
         end
@@ -33,6 +33,6 @@ function createSmallDataSet()
         user=user+1;
     end
     save('trainData.mat','trainData');
-    save('validationData.mat','validationData');
+%     save('validationData.mat','validationData');
     save('testData.mat','testData');
-end
+% end

@@ -31,13 +31,14 @@ angular_res = 240;
 % created
 
 %feature encoding parameters
-nscales=2;
+nscales=1;
 minWaveLength=18;
 mult=1; % not applicable if using nscales = 1
 sigmaOnf=0.5;
 
 eyeimage = imread(eyeimage_filename); 
 if ndims(eyeimage) == 3; eyeimage= rgb2gray(eyeimage); end
+% disp(size(eyeimage));
 % savefile = [eyeimage_filename,'-houghpara.mat'];
 % [stat,mess]=fileattrib(savefile);
 

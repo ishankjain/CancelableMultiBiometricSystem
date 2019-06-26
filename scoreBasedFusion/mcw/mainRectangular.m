@@ -1,0 +1,15 @@
+load('score_iris.mat');
+load('score_finger.mat');
+[RA1,gentest1,imptest1]=rectangularArea(score_finger);
+[RA2,gentest2,imptest2]=rectangularArea(sim);
+w1=(1/RA1)/((1/RA1)+(1/RA2));
+w2=(1/RA2)/((1/RA1)+(1/RA2));
+genuine=w1*gentest1+w2*gentest2;
+imposter=w1*imptest1+w2*imptest2;
+mus=mean(genuine);
+mud=mean(imposter);
+vars=var(genuine);
+vard=var(imposter);
+di=abs(mus-mud)/sqrt((vars+vard)/2);
+[EER,~,FAR,FRR,x]=EER_DET_conf(genuine,imposter,0.1,10000);
+% k=x(find(FAR==EER));

@@ -1,5 +1,5 @@
-S=load('score_face.mat');
-V=S.score_face;
+S=load('score_iris.mat');
+V=S.sim;
 genuine=[];
 imposter=[];
 for i=1:size(V)

@@ -1,22 +1,18 @@
-function RA=rectangularArea(V)
-    % V=sim;
+function [RA,gentest,imptest]=rectangularArea(V)
+%     V=sim;
+    per=1;
     genuine=[];
     imposter=[];
     for i=1:size(V)
         for j=1:size(V)
             if i==j
-                genuine=[genuine;[V(i,j)]];
+                genuine=[genuine,[V(i,j)]];
             else
-                imposter=[imposter;[V(i,j)]];
+                imposter=[imposter,[V(i,j)]];
             end
         end
     end
-    mus=mean(genuine);
-    mud=mean(imposter);
-    vars=var(genuine);
-    vard=var(imposter);
-    di=abs(mus-mud)/sqrt((vars+vard)/2);
-    [EER,OP,FAR,FRR,x]=EER_DET_conf(genuine,imposter,0.1,10000);
+    [EER,OP,FAR,FRR,x]=EER_DET_conf(genuine(1,1:per*size(genuine,2)),imposter(1,1:per*size(imposter,2)),0.1,10000);
     zFAR=-1;
     zFRR=-1;
     for i=1:size(FAR,2)
@@ -48,4 +44,7 @@ function RA=rectangularArea(V)
         end
     end
     RA=EER*(zFAR-zFRR);
-end
+    per=0;
+    gentest=genuine(1,per*size(genuine,2)+1:size(genuine,2));
+    imptest=imposter(1,per*size(imposter,2)+1:size(imposter,2));
+% end

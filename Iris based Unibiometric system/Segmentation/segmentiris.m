@@ -103,8 +103,12 @@ imagewithnoise = double(eyeimage);
 
 %find top eyelid
 topeyelid = imagepupil(1:(rowp-r),:);
-lines = findline(topeyelid);
-
+% disp(size(topeyelid));
+if size(topeyelid,1)>0
+    lines = findline(topeyelid);
+else
+    lines=[];
+end
 if size(lines,1) > 0
     [xl yl] = linecoords(lines, size(topeyelid));
     yl = double(yl) + irl-1;
@@ -122,8 +126,11 @@ end
 
 %find bottom eyelid
 bottomeyelid = imagepupil((rowp+r):size(imagepupil,1),:);
-lines = findline(bottomeyelid);
-
+if size(bottomeyelid,1)>0
+    lines = findline(bottomeyelid);
+else
+    lines=[];
+end
 if size(lines,1) > 0
     
     [xl yl] = linecoords(lines, size(bottomeyelid));

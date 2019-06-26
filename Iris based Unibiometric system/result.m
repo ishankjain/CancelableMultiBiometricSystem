@@ -1,5 +1,5 @@
-S=load('score.mat');
-V=S.score;
+S=load('scoreTest.mat');
+V=S.scoreTest;
 genuine=[];
 imposter=[];
 for i=1:size(V)
@@ -11,9 +11,9 @@ for i=1:size(V)
         end
     end
 end
-mus=mean(genuine);
-mud=mean(imposter);
-vars=var(genuine);
-vard=var(imposter);
+mus=nanmean(genuine);
+mud=nanmean(imposter);
+vars=nanvar(genuine);
+vard=nanvar(imposter);
 di=abs(mus-mud)/sqrt((vars+vard)/2);
 [EER,OP]=EER_DET_conf(genuine,imposter,0.1,10000);

@@ -20,7 +20,7 @@
 
 function lines = findline(image)
 
-[I2, or] = canny(image, 2, 1, 1.00, 1.00);
+[I2, or] = canny(image, 2, 0.8, 1.00, 1.00);
 
 I3 = adjgamma(I2, 1.9);
 I4 = nonmaxsup(I3, or, 1.5);
