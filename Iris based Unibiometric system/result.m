@@ -1,5 +1,5 @@
-S=load('scoreTest.mat');
-V=S.scoreTest;
+% load('scoreTestMMU.mat');
+V=scoreCombined;
 genuine=[];
 imposter=[];
 for i=1:size(V)

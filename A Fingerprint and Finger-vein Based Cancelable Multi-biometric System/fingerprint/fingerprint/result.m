@@ -1,5 +1,5 @@
-S=load('score.mat');
-V=S.score;
+% S=load('score.mat');
+V=score;
 genuine=[];
 imposter=[];
 for i=1:size(V)
