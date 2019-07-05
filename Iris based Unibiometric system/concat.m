@@ -19,3 +19,4 @@ for i=1:size(trainCombined,1)
 end
 save('trainCombined.mat','trainCombined');
 save('testCombined.mat','testCombined');
+save('scoreCombined.mat','scoreCombined');
